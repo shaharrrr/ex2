@@ -29,6 +29,13 @@ public:
     */
     Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards);
 
+    /*
+     * D'tor of the game:
+     *
+     * @result
+     *      Destruction of Mtmchkin
+    */
+    ~Mtmchkin();
 
     /*
      * Play the next Card - according to the instruction in the exercise document
@@ -46,7 +53,7 @@ public:
      *          True if the game ended
      *          False otherwise
      */
-    bool isOver() const;
+    bool isOver();
 
 
     /*
@@ -57,11 +64,27 @@ public:
      */
     GameStatus getGameStatus() const;
 
+    /*
+    *  Sets the status of the game:
+    *  Win - if the player reached level 10.
+    *  Loss - if the player's HP reached 0.
+    *  MidGame - else.
+    *
+    *  @return
+    *          void
+    */
+    void setStatus();
+
     //TODO: complete the Mtmchkin class.
+
 
 private:
     //TODO: complete the Mtmchkin class.
-
+    GameStatus m_status;
+    Player m_player;
+    Card* m_cards;
+    int m_currentCard;
+    int m_numOfCards;
 };
 
 
